@@ -1,5 +1,17 @@
-<h1>Counter</h1>
+<h1>Simple Counter</h1>
 <p>Current count: {{ counter }}</p>
-<button (click)="increaseBy(1)">Increment</button>
-<button (click)="increaseBy(-1)">Descendent</button>
+
+<button (click)="increaseBy(1)">+1</button>
+<button (click)="increaseBy(-1)">-1</button>
 <button (click)="resetCounter()">Reset</button>
+<br/>
+<br/>
+
+
+<hr/>
+<h1>Signal Counter</h1>
+<p>Counter Signal: {{ counterSignal() }}</p>
+<button (click)="increaseBySignal(1)">+1</button>
+<button (click)="increaseBySignal(-1)">-1</button>
+<button (click)="resetSignalCounter()">Reset</button>
+
