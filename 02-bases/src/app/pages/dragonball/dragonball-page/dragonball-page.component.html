@@ -1,5 +1,5 @@
 <h1>DragonBall Page</h1>
-<hr>
+<hr />
 <section class="row">
   <div class="col-12 col-sm-6">
     <h3>Agregar:</h3>
@@ -11,15 +11,18 @@
     <h3>Listado</h3>
     <ul>
       @for(character of characters(); track character; let idx = $index) {
-        <li>
-          <span>{{ idx + 1 }} - {{character.name}}</span>
-          <strong
-            [class.text-danger]="character.power > 9000"
-            [class.text-primary]="character.power < 9000"
-          >
-            ({{character.power}})
-          </strong>
+        @if(character.power > 500){
+          <li>
+            <span>{{ idx + 1 }} - {{ character.name }}</span>
+            <strong
+              [class.text-danger]="character.power >= 9000"
+              [class.text-primary]="character.power < 9000"
+            >
+              ({{ character.power }})
+            </strong>
+          </li>
         }
+      }
     </ul>
   </div>
 </section>
