@@ -15,6 +15,8 @@ interface Character {
   styleUrl: './dragonball-page.component.css',
 })
 export class DragonballPageComponent {
+  name = signal('Gohan');
+  power = signal(7000);
 
   characters = signal<Character[]>([
     { id: 1, name: 'Goku', power: 9000 },
@@ -28,6 +30,22 @@ export class DragonballPageComponent {
     { id: 9, name: 'Chiaotzu', power: 3000 },
     { id: 10, name: 'Master Roshi', power: 2000 },
   ])
+
+  addCharacter() {
+
+    this.characters.update((current) => {
+      return [
+        ...current,
+        {
+          id: current.length + 1,
+          name: this.name(),
+          power: this.power(),
+        },
+      ]
+    })
+  }
+
+
 
 
   powerClass = computed(() => {
