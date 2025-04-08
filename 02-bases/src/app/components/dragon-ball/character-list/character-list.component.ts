@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, input, signal } from '@angular/core';
 import type { Character } from '../../../interfaces';
 
 @Component({
@@ -10,6 +10,6 @@ import type { Character } from '../../../interfaces';
 export class CharacterListComponent {
   //@Input() characters!:Character[]; // This is the old way of doing it
   characters = input.required<Character[]>() // This is the new way of doing it
-  listName = input<string>('')
+  listName = input<string>('')  
 
 }

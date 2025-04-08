@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, input, signal } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output, output, signal } from '@angular/core';
 import type { Character } from '../../../interfaces';
 
 @Component({
@@ -8,9 +8,11 @@ import type { Character } from '../../../interfaces';
   styleUrl: './character-add.component.css',
 })
 export class CharacterAddComponent {
-  name = signal<string>('');
-  power = signal<number>(0);
-  newCharacter = new EventEmitter<Character>();
+  name = signal<string>('anacleto');
+  power = signal<number>(4000);
+  
+  //@Output() newCharacter = new EventEmitter<Character>(); // Forma antigua
+  newCharacter = output<Character>(); // Forma nueva
 
   emitCharacter(){
     if(!this.name() || this.power() <= 0) return;
