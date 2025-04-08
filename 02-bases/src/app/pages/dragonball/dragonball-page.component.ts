@@ -32,15 +32,17 @@ export class DragonballPageComponent {
   ])
 
   addCharacter() {
+    if(!this.name() || this.power() <= 0) return;
+
+    const newCharacter: Character =         {
+      id: this.characters().length + 1,
+      name: this.name(),
+      power: this.power(),
+    }
 
     this.characters.update((current) => {
       return [
-        ...current,
-        {
-          id: current.length + 1,
-          name: this.name(),
-          power: this.power(),
-        },
+        ...current, newCharacter
       ]
     })
   }
