@@ -1,11 +1,9 @@
-import { NgClass } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
-import { CharacterListComponent } from "../../components/dragon-ball/character-list/character-list.component";
 import { Character } from '../../interfaces';
 
 @Component({
   selector: 'app-dragonball-page',
-  imports: [NgClass, CharacterListComponent],
+  imports: [],
   templateUrl: './dragonball-page.component.html',
   styleUrl: './dragonball-page.component.css',
 })
