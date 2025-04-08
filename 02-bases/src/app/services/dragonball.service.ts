@@ -1,4 +1,4 @@
-import { Injectable, signal } from "@angular/core";
+import { effect, Injectable, signal } from "@angular/core";
 import { Character } from "../interfaces";
 
 @Injectable({providedIn: 'root'}) // Provides the service in the root injector
@@ -15,6 +15,12 @@ export class DragonBallService {
     { id: 9, name: 'Chiaotzu', power: 3000 },
     { id: 10, name: 'Master Roshi', power: 2000 },
   ])
+
+  // Este efecto se ejecuta cada vez que la señal cambia
+  saveToLocalStorage = effect(()=>{
+    const characters = this.characters();
+    localStorage.setItem('characters', JSON.stringify(characters));
+  })
 
   addCharacter($newCharacter:Character) {
     this.characters.update((current) => {
